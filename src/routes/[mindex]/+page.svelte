@@ -1,15 +1,24 @@
 <script lang="ts">
     import TestComponent from "$lib/components/TestComponent.svelte";
 
-	let { data }: any = $props();
-
-	let state = $state(data);
-	let dstate = $derived(state.file_name);
+	let { data } = $props();
 
 	$effect(() => {
-		console.log("derived state mindex/+page.svelte", dstate);
+		console.log("derived state mindex/+page.svelte", data);
 	});
 </script>
 
+<div>
+	<div>
+		content of +page.svelte
 
-<TestComponent p={state} />
+		<ul>
+			<li>object: {data}</li>
+			<li>object: {data.myobj}</li>
+			<li>object: {data.myobj.file_name}</li>
+		</ul>
+	</div>
+	<div>
+		<TestComponent passedparam={data.myobj} />
+	</div>
+</div>

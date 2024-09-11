@@ -26,6 +26,6 @@ export const load: PageLoad = async ({ fetch, params }: LoadEvent) => {
 	console.log("page.load -> ", myobj.file_name);
 	
     return {
-        mjobj: myobj,
+        myobj: myobj,
     };
 };

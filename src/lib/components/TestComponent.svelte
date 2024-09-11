@@ -1,12 +1,9 @@
 <script lang="ts">
-    let { data }: any = $props();
-
-    let state = $state(data);
-    let dstate = $derived(state.file_name);
+    let { passedparam }: any = $props();
 
     $effect(() => {
-		console.log("derived state mindex/+page.svelte", dstate);
-	});
+      console.log("derived state testcomponent", passedparam);
+    });
 </script>
 
-<h1>{dstate.file_name}</h1>
+<h1>component value: {passedparam.file_name}</h1>
